@@ -23,8 +23,8 @@ class AppController
     /**
      * @Route("/", name="index")
      */
-    public function index()
+    public function index(Environment $twig)
     {
-
+        return new Response($twig->render('App/index.html.twig'));
     }
 }
