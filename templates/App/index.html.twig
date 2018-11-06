@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Coucou
+    <div class="container">
+        Coucou
+        {{ 'foo.bar'|trans }}
+        {{ 'foo2.bar'|trans }}
+    </div>
 {% endblock %}
