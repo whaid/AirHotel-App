@@ -1,11 +1,11 @@
 # AirHotel-App
-*AirHotel est un projet réalisé dans le cadre des cours de gestion de projet à l'IPI, elle n'a pas pour but d'être pleinement fonctionnelle.*
-
 L’objectif de l’application est de mettre à disposition des solutions d’hébergement pour les utilisateurs ayant pris l’avions. 
+AirHotel est un projet réalisé dans le cadre des cours de gestion de projet à l'IPI, elle n'a pas pour but d'être pleinement fonctionnelle.
 
 -----
 
 ## Installer l'application
+
 ### Pré-requis :
 * [PHP] 7.2 ou plus
 * Base de donnée MySQL / MariaDB
@@ -26,8 +26,10 @@ L’objectif de l’application est de mettre à disposition des solutions d’h
     
 #### Commandes utiles :
 * Chargement des données exemples/tests `php bin/console doctrine:fixtures:load`
+* Vider le cache de Symfony `php bin/console cache:clear`
+* Afficher toutes les routes existantes `php bin/console debug:router`
 * Lancer le serveur *(environnement de développement uniquement)* `php bin/console server:run`
 
 [PHP]: http://php.net/downloads.php
 [composer]: https://getcomposer.org/
-[Installation globale]: https://getcomposer.org/download/
+[Installation globale]: https://getcomposer.org/doc/00-intro.md#globally

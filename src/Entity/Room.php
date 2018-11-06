@@ -2,7 +2,7 @@
 /**
  * This file is a part of AirHotel-App
  *
- * Client.php
+ * Room.php
  *
  * @author      Vincent CLAVEAU <vinc.claveau@gmail.com>
  * @copyright   2018 Vincent CLAVEAU
@@ -15,9 +15,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="client")
+ * @ORM\Table(name="room")
  */
-class Client
+class Room
 {
     /**
      * @var int
@@ -33,14 +33,7 @@ class Client
      *
      * @ORM\Column(type="string")
      */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string")
-     */
-    private $address;
+    private $type;
 
 
     public function getId()
@@ -48,25 +41,14 @@ class Client
         return $this->id;
     }
 
-    public function getName()
+    public function getType()
     {
-        return $this->name;
+        return $this->type;
     }
 
-    public function setName(string $name)
+    public function setType(string $type)
     {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address)
-    {
-        $this->address = $address;
+        $this->type = $type;
         return $this;
     }
 }

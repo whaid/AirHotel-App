@@ -5,16 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}AirHotel{% endblock %}</title>
 
+        {# Import CSS #}
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+            {% if app.debug %}
+                <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+            {% else %}
+                <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+            {% endif %}
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         {% endblock %}
     </head>
 
     <body>
+        {% block header %}
+            {% include 'App/_header.html.twig' %}
+        {% endblock %}
+
         {% block body %}{% endblock %}
 
+        {% block footer %}{% endblock %}
+
+        {# Import JS #}
         {% block javascripts %}
-            <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+            {% if app.debug %}
+                <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+                <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+            {% else %}
+                <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+                <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+            {% endif %}
         {% endblock %}
     </body>
 </html>
