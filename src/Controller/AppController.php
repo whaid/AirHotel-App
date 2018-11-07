@@ -29,7 +29,7 @@ class AppController
     }
 
     /**
- 	* @Route("/test", name="test")
+ 	* @Route("/connexion", name="connexion")
  	*/
     public function test(Environment $twig)
     {
