@@ -14,6 +14,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ *
+ * TODO: Pas utilisé pour le moment, utile pour la gestion de comptes utilisateurs plus tard.
+ *
  * @ORM\Entity()
  * @ORM\Table(name="client")
  */
