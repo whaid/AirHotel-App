@@ -14,6 +14,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ *
+ * TODO: Pas utilisé pour le moment, utile pour la gestion de comptes utilisateurs plus tard.
+ *
  * @ORM\Entity()
  * @ORM\Table(name="client")
  */
@@ -43,30 +46,43 @@ class Client
     private $address;
 
 
-    public function getId()
+    /**
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName(string $name)
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
     {
         $this->name = $name;
-        return $this;
     }
 
-    public function getAddress()
+    /**
+     * @return string
+     */
+    public function getAddress(): string
     {
         return $this->address;
     }
 
-    public function setAddress(string $address)
+    /**
+     * @param string $address
+     */
+    public function setAddress(string $address): void
     {
         $this->address = $address;
-        return $this;
     }
 }
