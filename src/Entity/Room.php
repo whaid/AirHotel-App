@@ -35,20 +35,143 @@ class Room
      */
     private $type;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $price;
 
-    public function getId()
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    private $state;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $smokingAllowed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $animalAllowed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $handicappedAccess;
+
+
+    /**
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getType()
+    /**
+     * @return string
+     */
+    public function getType(): string
     {
         return $this->type;
     }
 
-    public function setType(string $type)
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): void
     {
         $this->type = $type;
-        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrice(): int
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     */
+    public function setPrice(int $price): void
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getState(): string
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState(string $state): void
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSmokingAllowed(): bool
+    {
+        return $this->smokingAllowed;
+    }
+
+    /**
+     * @param bool $smokingAllowed
+     */
+    public function setSmokingAllowed(bool $smokingAllowed): void
+    {
+        $this->smokingAllowed = $smokingAllowed;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAnimalAllowed(): bool
+    {
+        return $this->animalAllowed;
+    }
+
+    /**
+     * @param bool $animalAllowed
+     */
+    public function setAnimalAllowed(bool $animalAllowed): void
+    {
+        $this->animalAllowed = $animalAllowed;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHandicappedAccess(): bool
+    {
+        return $this->handicappedAccess;
+    }
+
+    /**
+     * @param bool $handicappedAccess
+     */
+    public function setHandicappedAccess(bool $handicappedAccess): void
+    {
+        $this->handicappedAccess = $handicappedAccess;
     }
 }
