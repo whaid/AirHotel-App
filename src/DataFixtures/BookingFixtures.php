@@ -10,8 +10,12 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Booking;
+use App\Entity\Room;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
-class BookingFixtures
+class BookingFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -25,7 +29,7 @@ class BookingFixtures
             $booking->setTicketNumber($ticket_number);
             $booking->setDateArrival($date_arrival);
             $booking->setDateDeparture($date_departure);
-            $booking->setRoom(rooms[$i % sizeof($rooms)]);
+            $booking->setRoom($rooms[$i % sizeof($rooms)]);
 
             $manager->persist($booking);
         }
@@ -47,7 +51,7 @@ class BookingFixtures
     public function getDependencies()
     {
         return array(
-            BookingFixtures::class,
+            RoomFixtures::class,
         );
     }
 }

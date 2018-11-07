@@ -25,7 +25,7 @@ class Booking
     private $ticket_number;
 
     /**
-     * @var int
+     * @var room
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Room")
      * @ORM\JoinColumn(nullable=false)
@@ -60,20 +60,21 @@ class Booking
     }
 
     /**
-     * @return int
+     * @return room
      */
-    public function getRoom(): int
+    public function getRoom(): room
     {
         return $this->room;
     }
 
     /**
-     * @param int $room
+     * @param room $room
      */
-    public function setRoom(int $room): void
+    public function setRoom(room $room): void
     {
         $this->room = $room;
     }
+
 
     /**
      * @return mixed
