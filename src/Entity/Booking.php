@@ -33,13 +33,13 @@ class Booking
     private $room;
 
     /**
-     * @ORM\Column(type="Date")
+     * @ORM\Column(type="date")
      * @ORM\Column(type="string")
      */
     private $date_arrival;
 
     /**
-     * @ORM\Column(type="Date")
+     * @ORM\Column(type="date")
      */
     private $date_departure;
 
