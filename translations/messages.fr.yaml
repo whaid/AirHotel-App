@@ -1,3 +1,21 @@
 navbar:
   hello: Bonjour
   connect: Connexion
+index:
+  home: Bienvenue
+  roomremaining: Chambres restantes
+  showroom: Voir les chambres
+  simple: Simple
+  double: Double
+  family: Familiale
+
+price: Prix
+see: Voir
+bookings: Mes réservations
+help: Besoin d'aide ?
+faq: Aide - FAQ
+contact: Contactez nous
+legalmentions: Mentions Légales
+submit: Valider
+myTicket: Mon billet
+nbTicket: Entrer mon numero de mon billet

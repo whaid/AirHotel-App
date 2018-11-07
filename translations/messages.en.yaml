@@ -1,3 +1,21 @@
 navbar:
   hello: Hello
   connect: Connection
+index:
+  home: Welcome
+  roomremaining: Room remaining
+  showroom: Show rooms
+  simple: Simple
+  double: Double
+  family: Family
+
+price: Price
+see: Show
+bookings: My Bookings
+help: Help ?
+faq: Help - FAQ
+contact: Contact us
+legalmentions: Legal Notice
+submit: Submit
+myTicket: My ticket
+enter: Insert the number of my ticket

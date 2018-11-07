@@ -27,4 +27,12 @@ class AppController
     {
         return new Response($twig->render('App/index.html.twig'));
     }
+
+    /**
+ 	* @Route("/connexion", name="connexion")
+ 	*/
+    public function test(Environment $twig)
+    {
+        return new Response($twig->render('App/connexion.html.twig'));
+    }
 }
