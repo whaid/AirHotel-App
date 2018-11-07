@@ -20,7 +20,7 @@ class Booking
      * @ORM\Id()
      * @ORM\Column(type="string")
      */
-    private $numero_billet;
+    private $ticket_number;
 
     /**
      * @var int
@@ -44,17 +44,17 @@ class Booking
     /**
      * @return string
      */
-    public function getNumeroBillet(): string
+    public function getTicketNumber(): string
     {
-        return $this->numero_billet;
+        return $this->ticket_number;
     }
 
     /**
-     * @param string $numero_billet
+     * @param string $ticket_number
      */
-    public function setNumeroBillet(string $numero_billet): void
+    public function setTicketNumber(string $ticket_number): void
     {
-        $this->numero_billet = $numero_billet;
+        $this->ticket_number = $ticket_number;
     }
 
     /**
