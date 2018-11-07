@@ -8,6 +8,7 @@ index:
   simple: Simple
   double: Double
   family: Familiale
+  taxe: "Hors taxe de séjour : 1.25€/jour et par adulte."
 
 price: Prix
 see: Voir
@@ -19,3 +20,8 @@ legalmentions: Mentions Légales
 submit: Valider
 myTicket: Mon billet
 nbTicket: Entrer mon numero de mon billet
+handiccaped: Handicapé
+animals: Animaux
+smoker: Fumeur
+from: Du
+to: Au
