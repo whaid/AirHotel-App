@@ -23,7 +23,9 @@
 
         {% block body %}{% endblock %}
 
-        {% block footer %}{% endblock %}
+        {% block footer %}
+            {% include 'App/_footer.html.twig' %}
+        {% endblock %}
 
         {# Import JS #}
         {% block javascripts %}

@@ -1,21 +1,13 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/">AirHotel</a>
+        <a class="navbar-brand" href="/">
+            AirHotel {% if app.environment == "dev" %}[DEV]{% endif %}
+        </a>
+
         <ul class="nav navbar-nav">
             <li class="nav-item nav-link">
                 {{ 'navbar.hello'|trans }} USERNAME ICI
             </li>
-            {#<li class="nav-item nav-link">#}
-                {#<div class="btn-group" role="group">#}
-                    {#<button id="language" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-                        {#<i class="fa fa-globe-americas"></i>#}
-                        {#<div class="dropdown-menu" aria-labelledby="language">#}
-                            {#<a class="dropdown-item" href="/en">EN</a>#}
-                            {#<a class="dropdown-item" href="/fr">FR</a>#}
-                        {#</div>#}
-                    {#</button>#}
-                {#</div>#}
-            {#</li>#}
         </ul>
     </div>
 </nav>

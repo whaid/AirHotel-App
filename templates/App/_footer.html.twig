@@ -1,0 +1,21 @@
+<footer class="bg-light">
+    <div class="container">
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="languageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-globe-americas"></i>
+            </a>
+
+            {% set params = app.request.attributes.get('_route_params') %}
+            {% set frParams = params|merge({'_locale': 'fr'}) %}
+            {% set enParams = params|merge({'_locale': 'en'}) %}
+
+            <div class="dropdown-menu" aria-labelledby="languageMenu">
+                <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), enParams) }}">EN</a>
+                <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), frParams) }}">FR</a>
+            </div>
+        </div>
+
+        PAR: {%  for param in params %}{{ param }}{% endfor %}
+        - {{ app.request.basePath }} - {{ app.request.baseUrl }} - {{ app.request.requestUri }} - {{ app.request.locale }}
+    </div>
+</footer>
