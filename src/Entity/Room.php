@@ -29,23 +29,17 @@ class Room
     private $id;
 
     /**
-     * @var string
+     * @var RoomType
      *
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="App\Entity\RoomType")
+     * @ORM\JoinColumn(referencedColumnName="name", nullable=false)
      */
-    private $type;
+    private $roomType;
 
     /**
-     * @var int
+     * @var boolean
      *
-     * @ORM\Column(type="integer")
-     */
-    private $price;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="boolean")
      */
     private $state;
 
@@ -80,49 +74,33 @@ class Room
     }
 
     /**
-     * @return string
+     * @return RoomType
      */
-    public function getType(): string
+    public function getRoomType(): RoomType
     {
-        return $this->type;
+        return $this->roomType;
     }
 
     /**
-     * @param string $type
+     * @param RoomType $roomType
      */
-    public function setType(string $type): void
+    public function setRoomType(RoomType $roomType): void
     {
-        $this->type = $type;
+        $this->roomType = $roomType;
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getPrice(): int
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param int $price
-     */
-    public function setPrice(int $price): void
-    {
-        $this->price = $price;
-    }
-
-    /**
-     * @return string
-     */
-    public function getState(): string
+    public function getState(): bool
     {
         return $this->state;
     }
 
     /**
-     * @param string $state
+     * @param bool $state
      */
-    public function setState(string $state): void
+    public function setState(bool $state): void
     {
         $this->state = $state;
     }

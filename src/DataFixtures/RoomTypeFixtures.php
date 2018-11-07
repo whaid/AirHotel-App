@@ -2,7 +2,7 @@
 /**
  * This file is a part of AirHotel-App
  *
- * ClientFixtures.php
+ * RoomTypeFixtures.php
  *
  * @author      Vincent CLAVEAU <vinc.claveau@gmail.com>
  * @copyright   2018 Vincent CLAVEAU
@@ -11,21 +11,21 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Client;
+use App\Entity\RoomType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ClientFixtures extends Fixture
+class RoomTypeFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getData() as [$name, $address])
+        foreach ($this->getData() as [$name, $price])
         {
-            $client = new Client();
-            $client->setName($name);
-            $client->setAddress($address);
+            $rt = new RoomType();
+            $rt->setName($name);
+            $rt->setPrice($price);
 
-            $manager->persist($client);
+            $manager->persist($rt);
         }
 
         $manager->flush();
@@ -34,8 +34,9 @@ class ClientFixtures extends Fixture
     private function getData(): array
     {
         return [
-            ['Romaric Allegrini', 'Colomiers'],
-            ['Aurélien Dardant', 'Purpan'],
+            ['Single', 60],
+            ['Double', 70],
+            ['Family', 85],
         ];
     }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is a part of AirHotel-App
  *
- * ClientRepository.php
+ * RoomTypeRepository.php
  *
  * @author      Vincent CLAVEAU <vinc.claveau@gmail.com>
  * @copyright   2018 Vincent CLAVEAU
@@ -11,14 +11,14 @@
 
 namespace App\Repository;
 
-use App\Entity\Client;
+use App\Entity\RoomType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
-class ClientRepository extends ServiceEntityRepository
+class RoomTypeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Client::class);
+        parent::__construct($registry, RoomType::class);
     }
 }

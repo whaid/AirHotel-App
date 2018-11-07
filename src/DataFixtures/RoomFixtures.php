@@ -2,7 +2,7 @@
 /**
  * This file is a part of AirHotel-App
  *
- * ClientFixtures.php
+ * RoomFixtures.php
  *
  * @author      Vincent CLAVEAU <vinc.claveau@gmail.com>
  * @copyright   2018 Vincent CLAVEAU
@@ -12,18 +12,21 @@
 namespace App\DataFixtures;
 
 use App\Entity\Room;
+use App\Entity\RoomType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class RoomFixtures extends Fixture
+class RoomFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getData() as [$type, $price, $state, $smokingAllowed, $animalAllowed, $handicappedAccess])
+        $rtRepository = $manager->getRepository(RoomType::class);
+
+        foreach ($this->getData() as [$rt, $state, $smokingAllowed, $animalAllowed, $handicappedAccess])
         {
             $room = new Room();
-            $room->setType($type);
-            $room->setPrice($price);
+            $room->setRoomType($rtRepository->find($rt));
             $room->setState($state);
             $room->setSmokingAllowed($smokingAllowed);
             $room->setAnimalAllowed($animalAllowed);
@@ -38,12 +41,19 @@ class RoomFixtures extends Fixture
     private function getData(): array
     {
         return [
-            ['Single', 80, 'dispo', true, true, false],
-            ['Single', 90, 'dispo', true, true, true],
-            ['Double', 130, 'dispo', false, false, false],
-            ['Double', 135, 'dispo', true, true, true],
-            ['Double', 135, 'dispo', true, true, true],
-            ['Family', 200, 'dispo', true, true, true],
+            ['Single', true, true, true, false],
+            ['Single', true, true, true, true],
+            ['Double', false, false, false, false],
+            ['Double', false, true, true, true],
+            ['Double', true, true, true, true],
+            ['Family', true, true, true, true],
         ];
+    }
+
+    public function getDependencies()
+    {
+        return array(
+            RoomTypeFixtures::class,
+        );
     }
 }
