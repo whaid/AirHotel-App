@@ -8,19 +8,21 @@
 
 namespace App\Entity;
 
-
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity()
+ * @ORM\Table(name="booking")
+ */
 class Booking
 {
-
     /**
      * @var string
      *
      * @ORM\Id()
      * @ORM\Column(type="string")
      */
-    private $numero_billet;
+    private $ticket_number;
 
     /**
      * @var int
@@ -31,30 +33,30 @@ class Booking
     private $room;
 
     /**
-     * @ORM\Column(type="Date")
+     * @ORM\Column(type="date")
      * @ORM\Column(type="string")
      */
     private $date_arrival;
 
     /**
-     * @ORM\Column(type="Date")
+     * @ORM\Column(type="date")
      */
     private $date_departure;
 
     /**
      * @return string
      */
-    public function getNumeroBillet(): string
+    public function getTicketNumber(): string
     {
-        return $this->numero_billet;
+        return $this->ticket_number;
     }
 
     /**
-     * @param string $numero_billet
+     * @param string $ticket_number
      */
-    public function setNumeroBillet(string $numero_billet): void
+    public function setTicketNumber(string $ticket_number): void
     {
-        $this->numero_billet = $numero_billet;
+        $this->ticket_number = $ticket_number;
     }
 
     /**
