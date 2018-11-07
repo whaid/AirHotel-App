@@ -2,15 +2,74 @@
 
 {% block body %}
     <div class="container">
-        <h1>Room List</h1>
-        <ul>
-            {% for room in rooms %}
-                <li>
-                    <a href="{{ path('room_show', {'id' : room.id}) }}">
-                        #{{ room.id }} - {{ room.type }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">Rechercher :</div>
+                            <div class="col-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="smoker">
+                                    <label class="custom-control-label" for="smoker">{{ "smoker"|trans }}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="animals">
+                                    <label class="custom-control-label" for="animals">{{ "animals"|trans }}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="handicape">
+                                    <label class="custom-control-label"
+                                           for="handicape">{{ "handiccaped"|trans }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-12">Date: {{ "from"|trans }} <input type="text" id="arrivalDate"
+                                                                            class="form-control"/> {{ "to"|trans }}
+                            <input type="text" id="departureDate" class="form-control"/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% for room in rooms %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    {% if room.smokingAllowed == 1 %}
+                        <i class="fas fa-smoking"></i>
+                    {% endif %}
+                    {% if room.animalAllowed == 1 %}
+                        <i class="fas fa-paw"></i>
+                    {% endif %}
+                    {% if room.handicappedAccess == 1 %}
+                        <i class="fas fa-wheelchair"></i>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endfor %}
     </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#arrivalDate, #departureDate").datepicker({
+                format: "dd/mm/yyyy"
+            });
+
+            $('#arrivalDate').datepicker()
+                .on("changeDate", function (e) {
+                    console.log(e.date);
+                    $("#departureDate").datepicker('setStartDate', e.date);
+                });
+            $('#arrivalDate').datepicker('setStartDate', new Date());
+        })
+    </script>
 {% endblock %}
