@@ -1,8 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h1>Room #{{ room.id }}</h1>
-        <p>Type: {{ room.type }}</p>
-    </div>
+<div class="row">
+	<div class="col-sm">
+		<div class="container text-center">
+			{% if room.roomtype.name == "Single" %}
+				<div class="container-fluid" id="single-room"></div>
+			{% elseif room.roomtype.name == "Double" %}
+				<div class="container-fluid" id="double-room"></div>
+			{% else %}
+				<div class="container-fluid" id="family-room"></div>
+			{% endif %}
+			<h1>Room #{{ room.id }}</h1>
+			<h2>Type: {{ room.roomtype.name }}</h2>
+			<p>Price: {{ room.roomtype.price }}</p>
+			<p>Smoker: {{ room.smokingAllowed }}</p>
+			<p>Animal: {{ room.animalAllowed }}</p>
+			<p>Handicaped: {{ room.handicappedAccess }}</p>
+			<input type="text" class="form-control" placeholder="Date" id="arrivalDate">
+			<input style="margin-top:20px" type="text" class="form-control" placeholder="Date" id="departDate">
+		</script>
+	</div>
+</div>
+<div class="col-sm bg-dark">
+	<div class="container">
+	</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#arrivalDate,#departDate').datepicker({
+			format: "dd/mm/yyyy"
+		});
+	})
+</script>
 {% endblock %}
