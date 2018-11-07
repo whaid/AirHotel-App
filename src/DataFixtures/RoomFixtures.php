@@ -19,10 +19,15 @@ class RoomFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getData() as [$type])
+        foreach ($this->getData() as [$type, $price, $state, $smokingAllowed, $animalAllowed, $handicappedAccess])
         {
             $room = new Room();
             $room->setType($type);
+            $room->setPrice($price);
+            $room->setState($state);
+            $room->setSmokingAllowed($smokingAllowed);
+            $room->setAnimalAllowed($animalAllowed);
+            $room->setHandicappedAccess($handicappedAccess);
 
             $manager->persist($room);
         }
@@ -33,12 +38,12 @@ class RoomFixtures extends Fixture
     private function getData(): array
     {
         return [
-            ['Single'],
-            ['Single'],
-            ['Double'],
-            ['Double'],
-            ['Double'],
-            ['Family'],
+            ['Single', 80, 'dispo', true, true, false],
+            ['Single', 90, 'dispo', true, true, true],
+            ['Double', 130, 'dispo', false, false, false],
+            ['Double', 135, 'dispo', true, true, true],
+            ['Double', 135, 'dispo', true, true, true],
+            ['Family', 200, 'dispo', true, true, true],
         ];
     }
 }
