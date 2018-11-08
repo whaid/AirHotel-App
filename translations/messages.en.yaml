@@ -29,5 +29,7 @@ room: Room
 rooms: Rooms
 arrivalDate: Arrival date
 departDate: Depart date
+reserve: Reserve
+cipher: Cipher
 
 Single: Single
