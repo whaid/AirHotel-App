@@ -4,8 +4,37 @@
     <div class="container-fluid" id="img-accueil"></div>
     <div class="container">
         <h1>{{ 'index.home'|trans }}</h1>
+        <form action="#" method="POST">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input required type="text" id="arrivalDate" placeholder="{{ "arrivalDate"|trans }}"
+                                   class="form-control"
+                                   name="arrivalDate"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input required type="text" id="departureDate" placeholder="{{ "departDate"|trans }}"
+                                   class="form-control"
+                                   name="departDate"/>
+                        </div>
+                        <div class="col-md-3">
+                            <select required name="type" class="form-control">
+                                <option selected disabled>{{ "typeofroom"|trans }}</option>
+                                <option value="single">{{ "index.simple"|trans }}</option>
+                                <option value="double">{{ "index.double"|trans }}</option>
+                                <option value="family">{{ "index.family"|trans }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-success btn-block">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
-        <table class="table">
+        <table class="table mt-3">
             <thead>
             <tr>
                 <th>Type</th>
@@ -37,4 +66,26 @@
         </table>
         <p class="font-weight-light font-italic">* {{ "index.taxe"|trans }}</p>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#arrivalDate, #departureDate").datepicker({
+                format: "dd/mm/yyyy",
+                startDate: new Date()
+            });
+
+            $('#arrivalDate').datepicker()
+                .on("changeDate", function (e) {
+                    $("#departureDate").datepicker('setStartDate', e.date);
+                });
+
+            $('#departureDate').datepicker()
+                .on("changeDate", function (e) {
+                    $("#arrivalDate").datepicker('setEndDate', e.date);
+                });
+        })
+    </script>
 {% endblock %}
