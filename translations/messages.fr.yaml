@@ -31,5 +31,8 @@ arrivalDate: Date d'arrivé
 departDate: Date de depart
 reserve: Réserver
 cipher: Cryptograme
+expiryDate : Date d'expiration
+cardCode : Code de carte
+holder : Titulaire
 
 Single: Simple
