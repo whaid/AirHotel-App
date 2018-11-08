@@ -31,5 +31,8 @@ arrivalDate: Arrival date
 departDate: Depart date
 reserve: Reserve
 cipher: Cipher
+expiryDate : Expiration date
+cardCode : Card code
+holder : Holder
 
 Single: Single
