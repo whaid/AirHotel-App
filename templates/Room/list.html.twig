@@ -41,15 +41,27 @@
         {% for room in rooms %}
             <div class="card mt-3">
                 <div class="card-body">
-                    {% if room.smokingAllowed == 1 %}
-                        <i class="fas fa-smoking"></i>
-                    {% endif %}
-                    {% if room.animalAllowed == 1 %}
-                        <i class="fas fa-paw"></i>
-                    {% endif %}
-                    {% if room.handicappedAccess == 1 %}
-                        <i class="fas fa-wheelchair"></i>
-                    {% endif %}
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="/images/{{ room.roomtype.name }}-room.jpg" alt="Chambre simple" class="img-fluid" />
+                        </div>
+                        <div class="col-8">
+                            <h2>{{ "room"|trans }} {{ room.id }}</h2>
+                            {% if room.smokingAllowed == 1 %}
+                                <i class="fas fa-smoking"></i>
+                            {% endif %}
+                            {% if room.animalAllowed == 1 %}
+                                <i class="fas fa-paw"></i>
+                            {% endif %}
+                            {% if room.handicappedAccess == 1 %}
+                                <i class="fas fa-wheelchair"></i>
+                            {% endif %}
+                        </div>
+                        <div class="col-2">
+                            <h3>{{ room.roomtype.price }} €</h3>
+                            <a class="btn btn-success btn-block badge-pill" href="{{ room.id }}">Voir / Réserver</a>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -70,6 +82,11 @@
                     $("#departureDate").datepicker('setStartDate', e.date);
                 });
             $('#arrivalDate').datepicker('setStartDate', new Date());
+
+            $('#departureDate').datepicker()
+                .on("changeDate", function (e) {
+                    $("#arrivalDate").datepicker('setEndDate', e.date);
+                });
         })
     </script>
 {% endblock %}
