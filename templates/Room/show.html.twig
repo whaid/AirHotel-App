@@ -42,11 +42,23 @@
 					<input type="text" id="titulaire" class="form-control"/>
 					<h3 class="text-white">{{ "cardCode"|trans }} :</h3>
 					<input type="text" id="codeCb" class="form-control"/>
-					<h3 class="text-white">{{ "expiryDate"|trans }} :</h3>
-					<input type="text" id="codeCb" class="form-control"/>
-					<h3 class="text-white">{{ "cipher"|trans }} :</h3>
-					<input type="text" id="cryptogtamme" class="form-control"/>
+					
+
+					<div class="container">
+						<div class="row">
+							<div class="col-sm">
+								<h3 class="text-white">{{ "expiryDate"|trans }} :</h3>
+								<input type="text" id="expirationDate" class="form-control"/>
+							</div>
+							<div class="col-sm">
+								<h3 class="text-white">{{ "cipher"|trans }} :</h3>
+								<input type="text" id="cryptogtamme" class="form-control"/>
+							</div>
+						</div>
+					</div>
+
 					<button style="margin-top: 20px" type="button" class="btn btn-warning">{{ "submit"|trans }}</button>
+
 				</div>
 			</div>
 		</div>
@@ -56,23 +68,30 @@
 
 {% block javascripts %}
     {{ parent() }}
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$("#arrivalDate, #departureDate").datepicker({
-				format: "dd/mm/yyyy"
-			});
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#arrivalDate, #departureDate").datepicker({
+                format: "dd/mm/yyyy"
+            });
 
-			$('#arrivalDate').datepicker()
-			.on("changeDate", function (e) {
-				console.log(e.date);
-				$("#departureDate").datepicker('setStartDate', e.date);
-			});
-			$('#arrivalDate').datepicker('setStartDate', new Date());
+            $('#arrivalDate').datepicker()
+            .on("changeDate", function (e) {
+                console.log(e.date);
+                $("#departureDate").datepicker('setStartDate', e.date);
+            });
+            $('#arrivalDate').datepicker('setStartDate', new Date());
 
-			$('#departureDate').datepicker()
-			.on("changeDate", function (e) {
-				$("#arrivalDate").datepicker('setEndDate', e.date);
-			});
-		})
-	</script>
+            $('#departureDate').datepicker()
+            .on("changeDate", function (e) {
+                $("#arrivalDate").datepicker('setEndDate', e.date);
+            });
+
+            $('#expirationDate').datepicker({
+                format: "mm/yyyy",
+                minViewMode: 1,
+                language: "fr",
+                autoclose: true
+            });
+        })
+    </script>
 {% endblock %}

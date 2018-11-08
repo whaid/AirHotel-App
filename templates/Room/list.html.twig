@@ -39,7 +39,10 @@
         </div>
 
         {% for room in rooms %}
-            <div class="card mt-3">
+            <div data-smoking="{{ room.smokingAllowed }}"
+                 data-animalAllowed="{{ room.animalAllowed }}"
+                 data-handicappedAccess="{{ room.handicappedAccess }}"
+                 class="card mt-3 room">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-2">
@@ -88,6 +91,11 @@
                 .on("changeDate", function (e) {
                     $("#arrivalDate").datepicker('setEndDate', e.date);
                 });
+
+            $("input[type='checkbox']").on("change", function() {
+                var id = $(this).attr('id');
+                $(".room").filter("date-".id).hide();
+            })
         })
     </script>
 {% endblock %}
