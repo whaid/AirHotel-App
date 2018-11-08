@@ -27,5 +27,7 @@ from: Du
 to: Au
 room: Chambre
 rooms: Chambres
+arrivalDate: Date d'arrivé
+departDate: Date de depart
 
 Single: Simple

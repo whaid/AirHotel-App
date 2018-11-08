@@ -27,5 +27,7 @@ from: From
 to: To
 room: Room
 rooms: Rooms
+arrivalDate: Arrival date
+departDate: Depart date
 
 Single: Single

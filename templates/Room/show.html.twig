@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container">
 <div class="row">
 	<div class="col-sm">
 		<div class="container text-center">
@@ -12,19 +13,32 @@
 				<div class="container-fluid" id="family-room"></div>
 			{% endif %}
 			<h1>{{ "room"| trans }} {{ room.id }}</h1>
-			<h2>Type: {{ room.roomtype.name| trans }}</h2>
-			<p>Price: {{ room.roomtype.price }}</p>
-			<p>Smoker: {{ room.smokingAllowed }}</p>
-			<p>Animal: {{ room.animalAllowed }}</p>
-			<p>Handicaped: {{ room.handicappedAccess }}</p>
-			<input type="text" class="form-control" placeholder="Date" id="arrivalDate">
-			<input style="margin-top:20px" type="text" class="form-control" placeholder="Date" id="departDate">
+			<h2>Type : {{ room.roomtype.name| trans }}</h2>
+			<p>{{ "price"| trans }} : {{ room.roomtype.price }}</p>
+			<p>{{ "smoker"| trans }} : {% if room.smokingAllowed == 1 %}
+				<i class="fas fa-check-circle"></i>
+			{% else %}
+				<i class="fas fa-times-circle"></i>
+			{% endif %}</p>
+			<p>{{ "animals"| trans }} : {% if room.animalAllowed == 1 %}
+				<i class="fas fa-check-circle"></i>
+			{% else %}
+				<i class="fas fa-times-circle"></i>
+			{% endif %}</p>
+			<p>{{ "handiccaped"| trans }} : {% if room.handicappedAccess == 1 %}
+				<i class="fas fa-check-circle"></i>
+			{% else %}
+				<i class="fas fa-times-circle"></i>
+			{% endif %}</p>
+			<input type="text" class="form-control" placeholder="{{ 'arrivalDate'| trans }}" id="arrivalDate">
+			<input style="margin-top:20px" type="text" class="form-control" placeholder="{{ 'departDate'| trans }}" id="departDate">
 		</script>
 	</div>
 </div>
 <div class="col-sm bg-dark">
 	<div class="container">
 	</div>
+</div>
 </div>
 </div>
 </div>
