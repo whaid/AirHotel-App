@@ -34,5 +34,6 @@ cipher: Cipher
 expiryDate : Expiration date
 cardCode : Card code
 holder : Holder
+typeofroom: Type of room
 
 Single: Single
