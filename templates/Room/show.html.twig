@@ -54,24 +54,25 @@
 </div>
 {% endblock %}
 
-{% block js %}
-<script type="text/javascript">
-	$(document).ready(function () {
-		$("#arrivalDate, #departureDate").datepicker({
-			format: "dd/mm/yyyy"
-		});
+{% block javascripts %}
+    {{ parent() }}
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#arrivalDate, #departureDate").datepicker({
+				format: "dd/mm/yyyy"
+			});
 
-		$('#arrivalDate').datepicker()
-		.on("changeDate", function (e) {
-			console.log(e.date);
-			$("#departureDate").datepicker('setStartDate', e.date);
-		});
-		$('#arrivalDate').datepicker('setStartDate', new Date());
+			$('#arrivalDate').datepicker()
+			.on("changeDate", function (e) {
+				console.log(e.date);
+				$("#departureDate").datepicker('setStartDate', e.date);
+			});
+			$('#arrivalDate').datepicker('setStartDate', new Date());
 
-		$('#departureDate').datepicker()
-		.on("changeDate", function (e) {
-			$("#arrivalDate").datepicker('setEndDate', e.date);
-		});
-	})
-</script>
+			$('#departureDate').datepicker()
+			.on("changeDate", function (e) {
+				$("#arrivalDate").datepicker('setEndDate', e.date);
+			});
+		})
+	</script>
 {% endblock %}
