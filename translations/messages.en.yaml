@@ -25,3 +25,7 @@ animals: Animals
 smoker: Smoker
 from: From
 to: To
+room: Room
+rooms: Rooms
+
+Single: Single

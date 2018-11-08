@@ -11,8 +11,8 @@
 			{% else %}
 				<div class="container-fluid" id="family-room"></div>
 			{% endif %}
-			<h1>Room #{{ room.id }}</h1>
-			<h2>Type: {{ room.roomtype.name }}</h2>
+			<h1>{{ "room"| trans }} {{ room.id }}</h1>
+			<h2>Type: {{ room.roomtype.name| trans }}</h2>
 			<p>Price: {{ room.roomtype.price }}</p>
 			<p>Smoker: {{ room.smokingAllowed }}</p>
 			<p>Animal: {{ room.animalAllowed }}</p>
