@@ -47,13 +47,13 @@
                         </div>
                         <div class="col-lg-8 col-6">
                             <h2>{{ "room"|trans }} {{ room.id }}</h2>
-                            {% if room.smokingAllowed == 1 %}
+                            {% if room.smokingAllowed %}
                                 <i class="fas fa-smoking"></i>
                             {% endif %}
-                            {% if room.animalAllowed == 1 %}
+                            {% if room.animalAllowed %}
                                 <i class="fas fa-paw"></i>
                             {% endif %}
-                            {% if room.handicappedAccess == 1 %}
+                            {% if room.handicappedAccess %}
                                 <i class="fas fa-wheelchair"></i>
                             {% endif %}
                         </div>
@@ -69,7 +69,8 @@
     </div>
 {% endblock %}
 
-{% block js %}
+{% block javascripts %}
+    {{ parent() }}
     <script type="text/javascript">
         $(document).ready(function () {
             $("#arrivalDate, #departureDate").datepicker({
