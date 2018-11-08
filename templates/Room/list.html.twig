@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-lg-2 col-4">
                             <h3>{{ room.roomtype.price }} €</h3>
-                            <a class="btn btn-success btn-block badge-pill" href="{{ room.id }}">Voir / Réserver</a>
+                            <a class="btn btn-success btn-block badge-pill" href="{{ path('room_show', {'id' : room.id}) }}">Voir / Réserver</a>
                         </div>
                     </div>
 
@@ -72,7 +72,8 @@
     </div>
 {% endblock %}
 
-{% block js %}
+{% block javascripts %}
+    {{ parent() }}
     <script type="text/javascript">
         $(document).ready(function () {
             $("#arrivalDate, #departureDate").datepicker({

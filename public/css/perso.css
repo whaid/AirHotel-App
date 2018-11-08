@@ -17,3 +17,8 @@
     background: url("/images/family-room.jpg") no-repeat center center;
     height: 33vh;
 }
+
+#card-payment {
+    background: url("/images/card-payment.png") no-repeat center center;
+    height: 33vh;
+}

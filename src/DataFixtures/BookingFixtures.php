@@ -19,7 +19,6 @@ class BookingFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-
         $roomRepository = $manager->getRepository(Room::class);
         $rooms = $roomRepository->findAll();
 
