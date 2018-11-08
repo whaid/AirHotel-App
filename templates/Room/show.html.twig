@@ -66,31 +66,32 @@
 </div>
 {% endblock %}
 
-{% block js %}
-<script type="text/javascript">
-	$(document).ready(function () {
-		$("#arrivalDate, #departureDate").datepicker({
-			format: "dd/mm/yyyy"
-		});
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#arrivalDate, #departureDate").datepicker({
+                format: "dd/mm/yyyy"
+            });
 
-		$('#arrivalDate').datepicker()
-		.on("changeDate", function (e) {
-			console.log(e.date);
-			$("#departureDate").datepicker('setStartDate', e.date);
-		});
-		$('#arrivalDate').datepicker('setStartDate', new Date());
+            $('#arrivalDate').datepicker()
+            .on("changeDate", function (e) {
+                console.log(e.date);
+                $("#departureDate").datepicker('setStartDate', e.date);
+            });
+            $('#arrivalDate').datepicker('setStartDate', new Date());
 
-		$('#departureDate').datepicker()
-		.on("changeDate", function (e) {
-			$("#arrivalDate").datepicker('setEndDate', e.date);
-		});
+            $('#departureDate').datepicker()
+            .on("changeDate", function (e) {
+                $("#arrivalDate").datepicker('setEndDate', e.date);
+            });
 
-		$('#expirationDate').datepicker({
-   			format: "mm/yyyy",
-    		minViewMode: 1,
-    		language: "fr",
-    		autoclose: true
-		});
-	})
-</script>
+            $('#expirationDate').datepicker({
+                format: "mm/yyyy",
+                minViewMode: 1,
+                language: "fr",
+                autoclose: true
+            });
+        })
+    </script>
 {% endblock %}
