@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="room_type")
+ * @ORM\Table(name="tickets_valides")
  */
 class TicketsValides
 {
