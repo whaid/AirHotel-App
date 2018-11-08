@@ -1,6 +1,8 @@
 #img-accueil {
     background: url("/images/hotel.jpg") no-repeat center center;
     height: 33vh;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 #single-room {
