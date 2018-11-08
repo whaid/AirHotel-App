@@ -29,10 +29,32 @@ class AppController
     }
 
     /**
- 	* @Route("/connexion", name="connexion")
- 	*/
+     * @Route("/test", name="test")
+     */
     public function test(Environment $twig)
     {
-        return new Response($twig->render('App/connexion.html.twig'));
+        $datesBDD = [
+            [date_create("2013-03-15"),date_create("2013-03-20")],
+            [date_create("2013-03-16"),date_create("2013-03-17")],
+            [date_create("2013-03-17"),date_create("2013-03-18")],
+            [date_create("2013-03-18"),date_create("2013-03-20")],
+            [date_create("2013-03-19"),date_create("2013-03-21")],
+            [date_create("2013-03-19"),date_create("2013-03-21")],
+        ];
+
+        $da = date_create("2013-03-18");
+        $dp = date_create("2013-03-19");
+
+        foreach ($datesBDD as $i => [$date_arrival,$date_departure])
+        {
+            if(($da > $date_departure || $da < $date_arrival) && ($dp > $date_departure || $dp < $date_arrival))
+            {
+                echo "Date est validé<br>";
+            } else {
+                echo "Date est pas OK<br>";
+            }
+        }
+
+        return new Response($twig->render('App/index.html.twig'));
     }
 }

@@ -8,6 +8,7 @@ index:
   simple: Simple
   double: Double
   family: Family
+  taxe: "Excluding tourist tax: 1.25€ / day and per adult."
 
 price: Price
 see: Show
@@ -19,3 +20,20 @@ legalmentions: Legal Notice
 submit: Submit
 myTicket: My ticket
 enter: Insert the number of my ticket
+handiccaped: Handicapped
+animals: Animals
+smoker: Smoker
+from: From
+to: To
+room: Room
+rooms: Rooms
+arrivalDate: Arrival date
+departDate: Depart date
+reserve: Reserve
+cipher: Cipher
+expiryDate : Expiration date
+cardCode : Card code
+holder : Holder
+typeofroom: Type of room
+
+Single: Single

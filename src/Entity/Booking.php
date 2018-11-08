@@ -8,22 +8,24 @@
 
 namespace App\Entity;
 
-
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity()
+ * @ORM\Table(name="booking")
+ */
 class Booking
 {
-
     /**
      * @var string
      *
      * @ORM\Id()
      * @ORM\Column(type="string")
      */
-    private $numero_billet;
+    private $ticket_number;
 
     /**
-     * @var int
+     * @var room
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Room")
      * @ORM\JoinColumn(nullable=false)
@@ -31,47 +33,48 @@ class Booking
     private $room;
 
     /**
-     * @ORM\Column(type="Date")
+     * @ORM\Column(type="date")
      * @ORM\Column(type="string")
      */
     private $date_arrival;
 
     /**
-     * @ORM\Column(type="Date")
+     * @ORM\Column(type="date")
      */
     private $date_departure;
 
     /**
      * @return string
      */
-    public function getNumeroBillet(): string
+    public function getTicketNumber(): string
     {
-        return $this->numero_billet;
+        return $this->ticket_number;
     }
 
     /**
-     * @param string $numero_billet
+     * @param string $ticket_number
      */
-    public function setNumeroBillet(string $numero_billet): void
+    public function setTicketNumber(string $ticket_number): void
     {
-        $this->numero_billet = $numero_billet;
+        $this->ticket_number = $ticket_number;
     }
 
     /**
-     * @return int
+     * @return room
      */
-    public function getRoom(): int
+    public function getRoom(): room
     {
         return $this->room;
     }
 
     /**
-     * @param int $room
+     * @param room $room
      */
-    public function setRoom(int $room): void
+    public function setRoom(room $room): void
     {
         $this->room = $room;
     }
+
 
     /**
      * @return mixed

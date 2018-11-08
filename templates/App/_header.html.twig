@@ -6,26 +6,31 @@
 
         <ul class="nav navbar-nav">
             <li class="nav-item nav-link">
-                {% if app.session %}
-                {{ 'navbar.hello'|trans }} USERNAME ICI
+                {% if app.user %}
+                    {{ 'navbar.hello'|trans }} {{ app.user.username }}
                 {% else %}
-                {{ 'navbar.connect'|trans }}
+                    <li>
+                        <a class="nav-link" href="{{ path('user_login') }}">
+                            <i class="fa fa-sign-in pr-1"></i>
+                            {{ 'navbar.connect'|trans }}
+                        </a>
+                    </li>
                 {% endif %}
             </li>
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="languageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-globe-americas"></i>
-                </a>
 
-                {% set params = app.request.attributes.get('_route_params') %}
-                {% set frParams = params|merge({'_locale': 'fr'}) %}
-                {% set enParams = params|merge({'_locale': 'en'}) %}
+            <li class="nav-item nav-link">
+                <div class="dropdown">
+                    <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="languageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-globe-americas"></i>
+                    </a>
 
-                <div class="dropdown-menu" aria-labelledby="languageMenu">
-                    <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), enParams) }}">EN</a>
-                    <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), frParams) }}">FR</a>
+                    {% set params = app.request.attributes.get('_route_params') %}
+                    <div class="dropdown-menu" aria-labelledby="languageMenu">
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), params|merge({'_locale': 'en'})) }}">EN</a>
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), params|merge({'_locale': 'fr'})) }}">FR</a>
+                    </div>
                 </div>
-            </div>
+            </li>
         </ul>
     </div>
 </nav>

@@ -1,4 +1,26 @@
 #img-accueil {
     background: url("/images/hotel.jpg") no-repeat center center;
     height: 33vh;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+#single-room {
+    background: url("/images/single-room.jpg") no-repeat center center;
+    height: 33vh;
+}
+
+#double-room {
+    background: url("/images/double-room.jpg") no-repeat center center;
+    height: 33vh;
+}
+
+#family-room {
+    background: url("/images/family-room.jpg") no-repeat center center;
+    height: 33vh;
+}
+
+#card-payment {
+    background: url("/images/card-payment.png") no-repeat center center;
+    height: 33vh;
 }

@@ -46,11 +46,30 @@ class RoomController
     }
 
     /**
-     * @Route("/", name = "list")
+     * @Route("/list/{roomType}",
+     *     defaults = { "roomType" = null },
+     *     name = "list"
+     * )
      */
-    public function list(Environment $twig)
+    public function list($roomType, Environment $twig)
     {
-        $rooms = $this->roomRepository->findAll();
+        switch ($roomType)
+        {
+            case "single":
+            case "Single":
+                $rooms = $this->roomRepository->findBy(['roomType' => "Single"]);
+                break;
+            case "double":
+            case "Double":
+                $rooms = $this->roomRepository->findBy(['roomType' => "Double"]);
+                break;
+            case "family":
+            case "Family":
+                $rooms = $this->roomRepository->findBy(['roomType' => "Family"]);
+                break;
+            default:
+                $rooms = $this->roomRepository->findAll();
+        }
 
         return new Response($twig->render('room/list.html.twig', [
             'rooms' => $rooms
