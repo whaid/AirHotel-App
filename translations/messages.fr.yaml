@@ -30,5 +30,6 @@ rooms: Chambres
 arrivalDate: Date d'arrivé
 departDate: Date de depart
 reserve: Réserver
+cipher: Cryptograme
 
 Single: Simple
